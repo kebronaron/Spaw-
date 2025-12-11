@@ -1,0 +1,23 @@
+# Backend Dockerfile
+FROM node:18-alpine
+
+WORKDIR /app
+
+# Copy package files
+COPY backend/package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy backend source code
+COPY backend/src ./src
+COPY backend/migrate-reset-password.js ./
+
+# Expose port
+EXPOSE 4000
+
+# Set environment variables (will be overridden by App Runner)
+ENV NODE_ENV=production
+
+# Start the server
+CMD ["node", "src/server.js"]
