@@ -1,4 +1,4 @@
-# Frontend Dockerfile
+# Frontend Dockerfile - Lightweight build
 FROM node:20-alpine as builder
 
 WORKDIR /app
@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY frontend/package*.json ./
 
-# Install dependencies (clean install)
-RUN npm ci --prefer-offline --no-audit
+# Install only production dependencies to save space
+RUN npm ci --omit=dev --prefer-offline --no-audit && npm cache clean --force
 
 # Copy frontend source code
 COPY frontend/src ./src
@@ -16,10 +16,12 @@ COPY frontend/index.html ./
 COPY frontend/vite.config.ts ./
 COPY frontend/postcss.config.js ./
 COPY frontend/tsconfig*.json ./
-COPY frontend/eslint.config.js ./
 
-# Build the application (skip tsc check and just use vite)
-RUN npx vite build
+# Install dev dependencies only for build
+RUN npm ci --prefer-offline --no-audit
+
+# Build the application
+RUN npx vite build && npm cache clean --force
 
 # Production stage
 FROM nginx:alpine
