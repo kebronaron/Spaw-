@@ -1,0 +1,514 @@
+/* Global layout */
+.spaw-page {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #222;
+  background-color: #f7f7fb;
+}
+
+/* NAVBAR */
+.spaw-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  padding: 0 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #2b1b1a;
+  color: #fff;
+  z-index: 20;
+}
+
+.spaw-logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.spaw-nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.spaw-nav-links a {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.spaw-nav-links a:hover {
+  color: #0fd6c4;
+}
+
+.nav-profile-btn {
+  border: 1px solid #0fd6c4;
+  background: transparent;
+  color: #0fd6c4;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* HERO SECTION */
+.hero-section {
+  position: relative;
+  min-height: 80vh;
+  background-image: url("/images/spaw-hero.jpg"); /* replace with your image */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  margin-top: 60px; /* for fixed nav */
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.65),
+    rgba(0, 0, 0, 0.35)
+  );
+}
+
+.hero-content {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 3rem;
+  padding: 4rem 8%;
+  color: #fff;
+}
+
+.hero-text h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  margin-bottom: 1.5rem;
+  max-width: 500px;
+}
+
+.hero-cta-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  border-radius: 999px;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+}
+
+.primary-btn {
+  background: #0fd6c4;
+  color: #111;
+}
+
+.secondary-btn {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.hero-metric span {
+  font-weight: 700;
+  color: #0fd6c4;
+}
+
+.hero-widgets {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 320px;
+}
+
+.hero-widget-card {
+  background: rgba(0, 0, 0, 0.55);
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+}
+
+.hero-widget-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.hero-widget-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-widget-card li {
+  font-size: 0.9rem;
+}
+
+.hero-widget-card .task-done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* MAIN DASHBOARD */
+.dashboard-main {
+  padding: 3rem 8% 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: -3rem;
+}
+
+.dashboard-card {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(15, 214, 196, 0.08);
+  padding: 1.5rem;
+}
+
+/* Tasks */
+.task-input-row {
+  display: flex;
+  gap: 0.7rem;
+  margin-bottom: 0.8rem;
+}
+
+.task-input-row input {
+  flex: 1;
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+
+.task-input-row button {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #0fd6c4;
+  color: #111;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0;
+}
+
+.task-item label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.task-done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/* Reminders */
+.reminder-input-group {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.reminder-input-group input[type="text"],
+.reminder-input-group input[type="time"] {
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  font-size: 0.85rem;
+}
+
+.reminder-input-group button {
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #2b1b1a;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.reminder-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.reminder-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.reminder-time {
+  opacity: 0.7;
+}
+
+/* Focus timer */
+.focus-card .timer-display {
+  font-size: 2.4rem;
+  font-weight: 700;
+  text-align: center;
+  margin: 0.4rem 0 0.6rem;
+}
+
+.timer-subtitle {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-bottom: 0.7rem;
+}
+
+.timer-controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.timer-controls button {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #0fd6c4;
+  color: #111;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+/* Commute */
+.commute-card .commute-description {
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.commute-selects {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 0.7rem;
+}
+
+.commute-selects label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.2rem;
+}
+
+.commute-selects select {
+  width: 100%;
+  padding: 0.45rem 0.6rem;
+  border-radius: 999px;
+  border: 1px solid #ddd;
+  font-size: 0.85rem;
+}
+
+.commute-card button {
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  border: none;
+  background: #2b1b1a;
+  color: #fff;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.commute-result {
+  margin-top: 0.6rem;
+  font-size: 0.9rem;
+}
+
+/* Sections headings */
+.about-section,
+.community-section,
+.platform-section,
+.membership-section,
+.contact-section {
+  margin-top: 3rem;
+}
+
+/* ABOUT */
+.about-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+/* COMMUNITY */
+.community-section h2,
+.platform-section h2,
+.membership-section h2 {
+  text-align: center;
+  margin-bottom: 0.3rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.community-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.community-tile {
+  height: 130px;
+  border-radius: 12px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Placeholder images – replace with your own */
+.tile-1 {
+  background-image: url("/images/community1.jpg");
+}
+.tile-2 {
+  background-image: url("/images/community2.jpg");
+}
+.tile-3 {
+  background-image: url("/images/community3.jpg");
+}
+.tile-4 {
+  background-image: url("/images/community4.jpg");
+}
+
+/* PLATFORM */
+.platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.platform-card {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.2rem;
+  border: 1px solid #eaeaea;
+}
+
+/* MEMBERSHIP */
+.membership-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.membership-item {
+  background: #ffffff;
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+}
+
+/* CONTACT */
+.contact-section {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
+  gap: 1.5rem;
+}
+
+.contact-card,
+.about-me-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  padding: 0.6rem 0.7rem;
+  font-size: 0.9rem;
+}
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: none;
+  background: #0fd6c4;
+  color: #111;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+/* FOOTER */
+.spaw-footer {
+  padding: 1.5rem 8%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  border-top: 1px solid #e4e4e4;
+  margin-top: 2rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .hero-content {
+    flex-direction: column;
+  }
+
+  .hero-widgets {
+    max-width: none;
+  }
+
+  .contact-section {
+    grid-template-columns: 1fr;
+  }
+
+  .community-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .spaw-nav {
+    padding: 0 1rem;
+  }
+
+  .spaw-nav-links {
+    display: none; /* simple mobile nav for now */
+  }
+
+  .dashboard-main {
+    padding: 2rem 1rem 3rem;
+  }
+}
