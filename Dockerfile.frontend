@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY frontend/package*.json ./
 
-# Install dependencies
-RUN npm install
+# Install dependencies (clean install)
+RUN npm install --prefer-offline --no-audit
 
 # Copy frontend source code
 COPY frontend/src ./src
