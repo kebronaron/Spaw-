@@ -14,6 +14,7 @@ COPY frontend/src ./src
 COPY frontend/public ./public
 COPY frontend/index.html ./
 COPY frontend/vite.config.ts ./
+COPY frontend/postcss.config.js ./
 COPY frontend/tsconfig*.json ./
 COPY frontend/eslint.config.js ./
 
